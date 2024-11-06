@@ -62,7 +62,7 @@ class Transformer
     public function previewM3U8(string $source_object, VideoStyle $style): string
     {
         $target_object = 'living-hls/' . $style->name . '/' . $this->toObjectDir($source_object) . '/media.m3u8';
-        if (! $this->ossClient->doesObjectExist($this->bucket, $source_object)) {
+        if (! $this->ossClient->doesObjectExist($this->bucket, $target_object)) {
             $result = $this->toM3U8($source_object, $style);
         }
         $option = ['x-oss-process' => 'hls/sign,live_1'];
