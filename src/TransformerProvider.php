@@ -24,11 +24,11 @@ class TransformerProvider extends ServiceProvider
     public function boot()
     {
         $configPath = __DIR__ . '/publish/transformer.php';
-        if (function_exists('config_path')) {
-            $publishPath = config_path('transformer.php');
-        } else {
-            $publishPath = base_path('config/transformer.php');
+        if (! function_exists('config_path')) {
+            // function not available and 'publish' not relevant in Lumen
+            return;
         }
+        $publishPath = config_path('transformer.php');
         $this->publishes([$configPath => $publishPath], 'transformer-config');
     }
 
