@@ -51,12 +51,12 @@ class Transformer
      */
     public function toM3U8(string $source_object, VideoStyle $style): mixed
     {
-        $target_object = 'living-hls/' . $style->name . '/' . $this->toObjectDir($source_object) . '/media.m3u8';
+        $target_object = 'living-hls/' . $style->name . '/' . $this->toObjectDir($source_object) . '/media';
         $process = $style->value .
             '|sys/saveas' .
             ',o_' . $this->base64url_encode($target_object) .
             ',b_' . $this->base64url_encode($this->bucket);
-        return $this->ossClient->asyncProcessObject($this->bucket, $source_object, $process);
+        return $this->ossClient->processObject($this->bucket, $source_object, $process);
     }
 
     public function previewM3U8(string $source_object, VideoStyle $style): string
