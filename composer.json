@@ -20,7 +20,8 @@
     "require": {
         "php": ">=8.1",
         "aliyuncs/oss-sdk-php": "^2.7",
-        "hyperf/support": "^3.1"
+        "hyperf/support": "^3.1",
+        "illuminate/support": "^10.48"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
@@ -46,6 +47,11 @@
     "extra": {
         "hyperf": {
             "config": "Wlfpanda1012\\VideoTransformer\\ConfigProvider"
+        },
+        "laravel": {
+            "providers": [
+                "Wlfpanda1012\\VideoTransformer\\TransformerProvider"
+            ]
         }
     }
 }

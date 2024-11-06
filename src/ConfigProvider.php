@@ -28,6 +28,14 @@ class ConfigProvider
                     ],
                 ],
             ],
+            'publish' => [
+                [
+                    'id' => 'config',
+                    'description' => 'The config for Transformer.',
+                    'source' => __DIR__ . '/publish/transformer.php',
+                    'destination' => BASE_PATH . '/config/autoload/transformer.php',
+                ],
+            ],
         ];
     }
 }
